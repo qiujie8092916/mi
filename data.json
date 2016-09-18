@@ -1,0 +1,325 @@
+{
+	"head_nav": [
+		{
+			"img": ["images/maxdingbu!160x110.jpg", 
+							"images/mi5!160x110.jpg"],
+			"name": ["小米Max", 
+							"小米手机5"],
+			"price": [1299, 
+								1799]
+		}, 
+		{
+			"img": ["images/hongmipro-320!160x110.jpg",
+							"images/hongminote4!160x110.jpg",
+							"images/note3!160x110.jpg",
+							"images/hongmi3s!160x110.jpg",
+							"images/hongmi3!160x110.jpg",
+							"images/320-220!160x110.jpg"],
+			"name": ["红米Pro",
+							"红米Note 4",
+							"红米Note 3",
+							"红米手机3S",
+							"红米手机3",
+							"红米手机3X"],
+			"price": [1499,
+								899,
+								899,
+								699,
+								699,
+								799]
+		}, 
+		{
+			"img": ["images/mipad2-16!160x110.jpg",
+							"images/mipad2-64!160x110.jpg",
+							"images/mipad2-64-win!160x110.jpg",
+							"images/bijiben32012.5!160x110.jpg",
+							"images/bijiben320!160x110.jpg"],
+			"name": ["小米平板2 16GB",
+							"小米平板2 64GB",
+							"小米平板2 64GB Windows版",
+							"小米笔记本Air 12.5'",
+							"小米笔记本Air 13.3'"],
+			"price": [999,
+							1299,
+							1299,
+							3499,
+							4999]
+		}, 
+		{
+			"img": ["images/mitv3s-43!160x110.jpg",
+							"images/mitv3s48!160x110.jpg",
+							"images/mitv355!160x110.jpg",
+							"images/bijiben32012.5!160x110.jpg",
+							"images/mitv3s-65!160x110.jpg",
+							"images/mitv70!160x110.jpg"],
+			"name": ["小米电视3S 43英寸",
+							"小米电视3S 48英寸",
+							"小米电视3 55英寸",
+							"小米电视3 60英寸",
+							"小米电视3S 65英寸 曲面",
+							"小米电视3 70英寸"],
+			"price": [1799,
+								1999,
+								3999,
+								4999,
+								8999,
+								9999]
+		}, 
+		{
+			"img": ["images/hezimini.png",
+							"images/hezi3.png",
+							"images/hezi3s!160x110.jpg",
+							"images/zhuji!160x110.jpg",
+							"images/jinshuban!160x110.jpg",
+							"images/putonban!160x110.jpg"],
+			"name": ["小米盒子mini版",
+							"小米盒子3",
+							"小米盒子3 增强版",
+							"小米电视主机",
+							"小米家庭音响 金属版",
+							"小米家庭音响 标准版"],
+			"price": [199,
+								249,
+								399,
+								999,
+								899,
+								699
+								]
+		}, 
+		{
+			"img": ["images/miwifi!160x110.jpg",
+							"images/miwifi-3!160x110.jpg",
+							"images/miwifimini!160x110.jpg",
+							"images/luyouqi3c!160x110.jpg",
+							"images/miwifilite!160x110.jpg",
+							"images/wifiExtension!160x110.jpg"],
+			"name": ["全新小米路由器",
+							"小米路由器 3 1200M",
+							"小米路由器 mini",
+							"小米路由器 3C 300M",
+							"小米路由器 青春版",
+							"小米WiFi放大器"],
+			"price": [699,
+								149,
+								129,
+								99,
+								79,
+								39
+								]
+		}, 
+		{
+			"img": ["images/scooter!160x110.jpg",
+							"images/water2!160x110.jpg",
+							"images/dianfanbao!160x110.jpg",
+							"images/air2!160x110.jpg",
+							"images/xiaobaishexiangji!160x110.jpg",
+							"images/zhinengyingjian!160x110.jpg"],
+			"name": ["九号平衡车",
+							"小米净水器",
+							"米家压力IH电饭煲",
+							"小米空气净化器 2",
+							"智能摄像机",
+							"查看全部<br>智能硬件"],
+			"price": [1999,
+			1299,
+			999,
+			699,
+			149
+			]
+		}
+	],
+	
+	"keyword": {
+		"name": ["小米手机5",
+						"空气净化器2",
+						"活塞耳机",
+						"小米路由器",
+						"移动电源",
+						"运动相机",
+						"小蚁摄像机",
+						"小米体重秤",
+						"小米插线板",
+						"配件优惠套装"],
+		"result": [11,
+									1,
+									4,
+									8,
+									21,
+									3,
+									2,
+									1,
+									13,
+									32]
+	},
+	
+	"single": {
+		"images": ["images/ac9d56f1-65c6-4174-940b-b3c79aafe0a2.jpg",
+							"images/0df5d106-ab01-4013-87de-a9793094245d.png",
+							"images/f35e0d0a-afae-443c-a7e6-3a49c40e2df1.png",
+							"images/46efda8b-672a-41a0-8ea9-434b746e5c62.jpg",
+							"images/4c68c352-fbd3-452d-be90-7b47e4f6ce76.png",
+							"images/74dd9736-f254-4964-a06a-24f0befb21ac.png",
+							"images/T146YgBKhv1RXrhCrK.jpg",
+							"images/6ef55907-bbed-49be-a2bb-be0821b5f7b8.png",
+							"images/d663ce13-c814-4f35-a7a8-46a4745e6fd7.jpg",
+							"images/T1d__jBQYT1RXrhCrK.jpg"],
+		"name": ["小米手机5 高配版",
+						"小米Max 优惠200元",
+						"红米Pro",
+						"小米笔记本",
+						"小米平板2 16GB现货",
+						"小米电视3S 48英寸",
+						"小米盒子3 增强版",
+						"小米手环 2",
+						"小米体重秤",
+						"小米空气净化器2"],
+		"desc": ["3GB内存＋64GB容量，玻璃版",
+		"128GB大容量，4850mAh大电池",
+		"双摄像头，十核旗舰手机",
+		"独立显卡、超轻薄、金属机身",
+		"轻薄全金属，海量内容",
+		"原装液晶屏，金属机身",
+		"高端 4K 网络机顶盒",
+		"每天早10点开售",
+		"100克，喝杯水都可感知的精准",
+		"10分钟，房间空气焕然一新"],
+		"price": [2099,
+							1799,
+							1499,
+							3499,
+							999,
+							1999,
+							399,
+							149,
+							99,
+							699
+							]
+	},
+	
+	"hardware": [
+		{
+			"images": "T1rQAgB7Av1RXrhCrK.jpg",
+			"name": "小米路由器3",
+			"desc": "四天线设计，更安全更稳定",
+			"price": 149,
+			"feature": "免邮费"
+		},
+		{
+			"images": "2b69b930-a2fd-4d09-a46a-8690cb79f764.jpg",
+			"name": "电助力折叠自行车",
+			"desc": "力矩传感电助力，折叠便携设计",
+			"price": 2999,
+			"feature": "新品"
+		},
+		{
+			"images": "0ecb87b1-9604-4f31-a4b4-29bd2c911680.jpg",
+			"name": "小米VR眼镜玩具版",
+			"desc": "观看新体验，期待总于意料之外",
+			"price": 49,
+			"feature": "新品"
+		},
+		{
+			"images": "T1PXhgBbdT1RXrhCrK!220x220.jpg",
+			"name": "九号平衡车",
+			"desc": "年轻人的酷玩具，骑行遥控两种玩法",
+			"price": 1999
+		},
+		{
+			"images": "pms_1464615180.86261317!220x220.jpg",
+			"name": "米兔智能故事机",
+			"desc": "宝宝又不好好吃饭，让米兔来哄宝宝吧",
+			"price": 199,
+			"feature": "新品"
+		},
+		{
+			"images": "T1OVC_ByY_1RXrhCrK!220x220.jpg",
+			"name": "米家压力IH电饭煲",
+			"desc": "IH电磁环绕加热，让米粒在锅里跳舞",
+			"price": 999,
+			"feature": "免邮费"
+		},
+		{
+			"images": "pms_1469583266.7193851!220x220.jpg",
+			"name": "小米笔记本Air 12.5英寸",
+			"desc": "更轻更薄，像杂志一样随身携带",
+			"price": 3499,
+			"feature": "新品"
+		},
+		{
+			"images": "pms_1464071511.37197399!220x220.jpg",
+			"name": "米家 LED 智能台灯",
+			"desc": "无可视频闪，亮度色温无级调节",
+			"price": 169
+		}
+	],
+	
+	"match": [
+		{
+			"images": "T1AcE_Bghv1RXrhCrK.jpg",
+			"name": "移动电源5000mAh",
+			"price": 49,
+			"rank": "9万人评价",
+			"comment": "之前都不知道，还以为是18650电芯的。拿到手一看这...",
+			"user": "ywtdzh"
+		},
+		{
+			"images": "T12HJvByEv1RXrhCrK!220x220.jpg",
+			"name": "移动电源10000mAh",
+			"price": 79,
+			"rank": "19.5万人评价",
+			"comment": "小米官方的电源没的说  特别是现在新改版的电源大小合...",
+			"user": "虾米吃咪咪"
+		},
+		{
+			"images": "T1eSZgBjVT1RXrhCrK!220x220.jpg",
+			"name": "移动电源10000mAh 高配版",
+			"price": 149,
+			"rank": "2.2万人评价",
+			"comment": "非常棒的手感。越来越好了，小米加油！",
+			"user": "journey099"
+		},
+		{
+			"images": "T1x8J_BgEv1RXrhCrK.jpg",
+			"name": "移动电源20000mAh",
+			"price": 149,
+			"rank": "5万人评价",
+			"comment": "以前一直使用10400的版本，买了这个之后，才知道有...",
+			"user": "呈现逐步"
+		},
+		{
+			"images": "T1vSDQB4_T1RXrhCrK!220x220.jpg",
+			"name": "10000mAh小米移动电源保护套",
+			"price": 4.9,
+			"old": 19.9,
+			"rank": "2.1万人评价",
+			"comment": "可好了，能有效的保护手机了，再也不用担心移动电源被磨...",
+			"user": "682837881",
+			"feature": "享3折"
+		},
+		{
+			"images": "T1jMbjB5Jv1RXrhCrK.jpg",
+			"name": "小米插线板（3孔位+USB）",
+			"price": 49,
+			"rank": "25.1万人评价",
+			"comment": "东西真心不错，用过最好用的插线板，做工外观没得挑剔，...",
+			"user": "yinyin19891117"
+		},
+		{
+			"images": "T1vFEjBbWT1RXrhCrK!220x220.jpg",
+			"name": "小米USB充电器（4口）",
+			"price": 69,
+			"rank": "7951人评价",
+			"comment": "做工太好了，现在在试用。这精致的作工，真舍不得用。",
+			"user": "888698906"
+		},
+		{
+			"images": "T1Ihd_BTCv1RXrhCrK.jpg",
+			"name": "小米插线板 5孔位",
+			"price": 39,
+			"tiny": 1
+		}
+	]
+}
+
+
+						
