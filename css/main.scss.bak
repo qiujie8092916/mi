@@ -38,6 +38,12 @@
 	box-sizing:  $value;
 }
 
+@mixin opacity($value){
+	opacity: $value;
+	filter: alpha(opacity=$value*100)\9;	
+}
+
+
 *{margin: 0px; padding: 0px;}
 a{text-decoration: none;}
 i{line-height: 1.5;}
@@ -89,7 +95,6 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 		font-size: 16px;
 	} 
 	.rightArrow{
-		margin-right: 3px; 
 		font-size: 24px; 
 		line-height: 22px; 
 		float: left; 
@@ -834,7 +839,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 			}
 		}
 		
-		.banner{
+		.banner-ul{
 			position: relative;
 			display: inline-block;
 			top: 0;
@@ -1044,32 +1049,27 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 	background-color: #f5f5f5;
 	margin-top: 20px;
 	
+	.more-a{
+		display: inline-block;
+		@include animate(transition, all, .4s);
+		
+		i{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			@include animate(transition, all, .4s);
+		}
+		
+		&:hover, &:hover i{
+			color: #ff6700;
+		}
+	}
+	
 	.container-center{
 		width: 1226px;
 		padding-top: 60px;
 		margin: 0 auto;
 		display: block;
-		
-		.hardware{
-			width: 100%;
-			
-			.more-a{
-				display: inline-block;
-				@include animate(transition, all, .4s);
-				
-				i{
-					display: inline-block;
-					width: 20px;
-					height: 20px;
-					@include animate(transition, all, .4s);
-				}
-				
-				&:hover, &:hover i{
-					color: #ff6700;
-				}
-			}
-			
-		}
 		
 		.hot_product{
 			.main ul{
@@ -1078,7 +1078,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 				
 				li{
 					width: 296px;
-					height: 415px;
+					/*height: 415px;*/
 					background-color: #fff;
 					float: left;
 					margin-right: 14px;
@@ -1088,7 +1088,10 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 					}
 					
 					.comment{
-						margin: 0 28px 22px;
+						margin: 0 28px 22px;    
+						width: 240px;
+    				height: 72px;
+    				
 						a{
 							font-size: 14px;
 							font-weight: 400;	
@@ -1102,9 +1105,9 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 				    font-size: 12px;
 				    color: #b0b0b0;	
 					}
-					
+
 					.name{
-						margin: 0 28px;
+						margin: 0 28px 27px;
 				    text-overflow: ellipsis;
 				    white-space: nowrap;
 				    overflow: hidden;
@@ -1131,6 +1134,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 				position: absolute;
 		    top: 50%;
 		    margin-top: -20px;
+    		z-index: 10;
 		    transition: all .6s;
 		   	width: 20px;
 		   	height: 48px;
@@ -1141,20 +1145,21 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 		    cursor: pointer;
 		    transition: background-color .5s;
 		   	
-		   	&.left{
+		   	&.leftBtn{
 		   		left: 0;
 		   	}
-		   	&.right{
-		   		right: 0px;	
+		   	&.rightBtn{
+		   		right: 0;	
 		   	}
 		   	
 		   	&:hover{
-		   		background-color: rgba(66,66,66,0.2) !important;
+		   		background-color: #b0b0b0 !important;
 		   	}
 			}
 			
 			.module-ul{
 				margin-bottom: 14px;
+    		width: 1240px;
 				
 				.module{
 					width: 296px;
@@ -1170,7 +1175,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
     			margin-right: 14px;
 					
 					&:hover .iconfont{
-						background-color: #b0b0b0;
+						background-color: rgba(66,66,66,0.2);
 					}
 					
 					title{
@@ -1183,6 +1188,8 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 					ul{
 						width: 1184px;
 						height: 340px;
+						position: absolute;
+						left: 0px;
 						
 						.snippet{
 							float: left;
@@ -1303,8 +1310,8 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 				    width: 100%;
 				    height: 30px;
 				    bottom: 15px;
-				    
-				    li{
+
+				    li a{
 				    	display: inline-block;
 					    width: 6px;
 					    height: 6px;
@@ -1314,6 +1321,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 					    overflow: hidden;
 					    background-color: #b0b0b0;
     					margin: 0 15px;
+    					cursor: pointer;
 					    @include animate(transition, all, .5s);
 					    
 					    &.active{
@@ -1325,24 +1333,330 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 				}
 			}
 		}
+		
+		.video{
+			.main{
+				margin-bottom: 60px;
+				
+				.play-ul{
+					width: 1240px;
+					
+					li{
+						width: 296px;
+						margin-right: 14px;
+						text-align: center;
+						background-color: #fff;
+
+						.img-a{
+							display: block;
+							height: 180px;
+							position: relative;
+							cursor: pointer;
+							
+							&:hover .play{
+								background-color: #ff6700;
+								border-color:	#ff6700;
+							}
+						}
+						.name{
+							margin: 30px 0 10px;
+							
+							a{
+								color: #333;
+								font-size: 14px;
+							}	
+						}
+						.desc{
+							font-size: 12px;
+	    				color: #b0b0b0;	
+	    				margin-bottom: 35px;
+						}
+						
+						.play{
+							width: 36px;
+							height: 24px;
+							position: absolute;    
+							border: 2px solid #fff;
+    					border-radius: 12px;
+    					bottom: 10px;    
+    					left: 20px;
+    					@include animate(transition, all, .2s);
+    					
+    					.triangle{
+    						display: block;
+						    width: 0;
+						    height: 0;
+						    margin: 4px 0 0 11px;
+						    border-top: 6px solid transparent;
+						    border-left: 12px solid #fff;
+						    border-bottom: 6px solid transparent;
+    					}
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+
+.background.fade{
+	width:100%;    
+	position: absolute;
+  top: 0;
+	left: 0;
+	background-color: #000;
+	z-index: 50;
+	@include opacity(0);
+	@include animate(transition, opacity, .3s, ease-out);
+	
+	&.in{
+		@include opacity(0.5);
+	}	
+}
+
+.popup-layer{
+	position: fixed;
+  width: 880px;
+	height: 596px;
+	top: calc(0px - 596px);
+	left: calc(50% - 440px);
+	z-index: 100;
+	@include animate(transition, top, .5s);
+	
+	&.in{
+		top: calc(50% - 298px);
+	}
+	
+	.popup-head{
+		position: relative;
+    height: 60px;    
+    width: 100%;
+    padding: 14px 20px;
+    display: block;
+    background-color: #f5f5f5;
+    
+    title{
+    	margin: 0;
+	    font-size: 18px;
+	    font-weight: 400;
+	    line-height: 32px;
+	    color: #424242;	
+    }
+    
+    .close{
+    	position: absolute;
+    	top: 14px;
+	    right: 14px;
+	    width: 30px;
+	    height: 30px;
+	    color: #757575;
+	    cursor: pointer;
+	    transition: all .2s;
+	    z-index: 10;
+	    border-radius: 15px;
+	    line-height: 30px;
+	    text-indent: 7px;
+	    
+	    &:hover{
+	    	color: #fff;
+    		background-color: #e53935;	
+	    }
+    }
 	}
 }
 
 footer{
 	width: 100%;	
 	
+	.container-center{
+		width: 1226px;
+		margin: 0 auto;
+    display: block;
+	}
+	
 	.white-footer{
 		background: #fff;
 		height: 272px;
 		width: 100%;
 		display: block;
+		
+		.lg-foo-ul{
+			height: 80px;
+			width: 100%;
+			padding: 27px 0;	
+    	border-bottom: 1px solid #e0e0e0;
+			
+			li{
+		    float: left;
+		    width: 19.8%;
+		    height: 25px;
+		    border-left: 1px solid #e0e0e0;
+		    font-size: 16px;
+		    line-height: 25px;
+		    text-align: center;
+		    
+			  &.first{
+			  	border-left: 0;
+			  }
+			  
+			  a{
+			  	color: #616161;	
+			  }
+			  
+			  .iconfont{
+					margin-right: 6px;
+					font-size: 24px;
+					line-height: 24px;
+					vertical-align: -2px;	
+			  }
+			}
+		}
+		
+		.module-foo-ul{
+			margin: 40px 0;
+			border-right: 1px solid #e0e0e0;
+			
+			&>li{
+				float: left;
+		    width: 162px;
+		    height: 112px;
+		    margin: 0;
+		    
+		    title{
+		    	margin: -5px 0 15px;
+			    font-size: 14px;
+			    color: #424242;	
+		    }
+		    
+		    .sm-foo-ul{
+		    	li{
+		    		margin: 12px 0 0;
+    				font-size: 12px;
+    				display: block;
+    				
+		    		a{
+		    			color: #757575;
+		    			
+		    			&:hover{
+		    				color: #ff6700;	
+		    			}
+		    		}	
+		    	}
+		    }
+			}	
+		}
+		
+		.hot-line{
+			float: right;
+	    width: 251px;
+	    height: 112px;
+	    text-align: center;
+	    color: #616161;
+	    margin: 40px 0;
+	    
+	    .phone-num{
+	    	margin: 0 0 5px;
+		    font-size: 22px;
+		    line-height: 1;
+		    color: #ff6700;	
+	    }
+	    .phone-time{
+	    	margin: 0 0 16px;
+	    	span{
+    			font-size: 12px;
+    			display: block;	
+	    	}
+	    }
+	    button{
+	    	width: 120px;
+		    height: 30px;
+		    font-size: 12px;
+		    background-color: #fff;
+		    border: 1px solid #ff6700;
+		    line-height: 30px;
+		    color: #ff6700;
+		    cursor: pointer;
+		    @include animate(transition, all, .4s);
+		    
+		    i{
+			    font-size: 12px;
+			    color: #ff6700;
+			    line-height: 30px;
+    			margin-right: 2px;
+			    @include animate(transition, all, .4s);
+		    }
+		    
+		    &:hover{
+		    	background-color: #ff6700;
+		    	color: #fff;
+		    	i{
+		    		color: #fff;
+		    	}
+		    }
+	    }
+		}
 	}
 	.gray-footer{
-		padding: 30px 0;
+		padding: 35px 0;
     font-size: 12px;
     background: #fafafa;
 		height: 166px;;
 		width: 100%;
 		display: block;
+		
+		.logo{
+			float: left;
+	    border-radius: 2px;
+	    width: 55px;
+	    height: 55px;
+	    margin-right: 10px;
+	    background: url(../../images/mi-logo.png) 100% 100% no-repeat;
+		}
+		
+		.mmi-mma{
+			margin-bottom: 2px;
+			
+			li{
+				color: #b0b0b0;
+				    
+				a{
+					color: #757575;
+					
+					&:hover{
+						color: #ff6700;	
+					}
+				}
+			}
+		}
+		
+		span{
+			color: #b0b0b0;
+			line-height: 18px;
+			
+			a{
+				color: #b0b0b0;
+				
+				&:hover{
+						color: #ff6700;	
+				}
+			}	
+		}
+		
+		.info-link{
+			float: right;	
+			
+			img{
+	    	margin-left: 10px;
+			}
+		}
+		
+		.biaoyu{
+			margin: 30px auto 0;
+    	width: 267px;
+    	height: 19px;
+    	background: url(../../images/slogan2016.png) no-repeat center 0;
+    	display: block;
+		}
 	}
 }

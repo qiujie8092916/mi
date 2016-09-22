@@ -1,5 +1,5 @@
 $(function(){
-	mainBannerSwitcher()
+	mainBannerSwitcher(".main_banner", ".banner-ul", ".points", "opacity")
 	headNav()
 	quickView("single")
 	quickView("recommand")
@@ -11,50 +11,82 @@ $(function(){
 	
 	hotproductData()
 	contentData()
+	videoData()
 	
 	effectResult()
+	
 })
 
 
 /**********************/
-var mainBannerSwitcher = function(){
-	var banner = $(".banner").children("li")
-	var ul_points = $(".points")
-	var li_point = ul_points.children("li")
-	var i_points = ul_points.find("a")
-	var leftBtn = $(".leftBtn")
-	var rightBtn = $(".rightBtn")
-	
+var mainBannerSwitcher = function(DivName, UlName, OlName, animation){
 	var now = 0
-	$(banner[now]).css("opacity", 1)
+	var div = $(DivName)
+	var UlImg = div.find(UlName)
+	var banner = $(DivName).find(UlName).children("li")
+	var ol_points = div.find(OlName)
+	var li_points = ol_points.children("li")
+	var i_points = li_points.children("a")
+	var leftBtn = div.find(".leftBtn")
+	var rightBtn = div.find(".rightBtn")
 	
-	for(var j = 0; j < banner.length; j++){
-		if(j === now){
-			$(banner[j]).css("opacity", 1)
-		} else{
-			$(banner[j]).css("opacity", 0)
-		}
-	}
-	
-	$.each(i_points, function(i, e){
-		e.index = i
-		$(e).on("click", function(){
-			now = this.index
-			for(var j = 0; j < banner.length; j++){
-				if(j === now){
-					$(banner[j]).css("opacity", 1)
-					$(i_points[j]).addClass("active").removeClass("point")
-				} else{
-					$(banner[j]).css("opacity", 0)
-					$(i_points[j]).addClass("point").removeClass("active")
-				}
+	if(animation === "opacity"){
+		$(banner[now]).css("opacity", 1)
+		
+		for(var j = 0; j < banner.length; j++){
+			if(j === now){
+				$(banner[j]).css("opacity", 1)
+			} else{
+				$(banner[j]).css("opacity", 0)
 			}
+		}
+		
+		$.each(i_points, function(i, e){
+			e.index = i
+			$(e).on("click", function(){
+				now = this.index
+				for(var j = 0; j < banner.length; j++){
+					if(j === now){
+						$(banner[j]).css("opacity", 1)
+						$(i_points[j]).addClass("active").removeClass("point")
+					} else{
+						$(banner[j]).css("opacity", 0)
+						$(i_points[j]).addClass("point").removeClass("active")
+					}
+				}
+			})
 		})
-	})
+		
+	} else if(animation === "left"){
+		$(li_points[now]).children("a").addClass("active")
+		$.each(i_points, function(i, e){
+			e.index = i
+			$(e).on("click", function(){
+				now = this.index
+				$(li_points[now]).children("a").removeClass("active")
+				$(li_points[now]).siblings().children("a").removeClass("active")
+				$(li_points[now]).children("a").addClass("active")
+				UlImg.animate({"left": -now * banner[0].offsetWidth}, 350)
+			})
+		})
+		
+	}
 	
 	leftBtn.on("click", function(){
 		now--
-		if(now < 0){now = banner.length-1}
+		if(now < 0){
+			if(animation === "opacity"){now = banner.length-1}
+			if(animation === "left"){now = 0}
+		}
+		$(i_points[now]).trigger("click")
+	})
+	
+	rightBtn.on("click", function(){
+		now++
+		if(now > banner.length-1){
+			if(animation === "opacity"){now = 0}
+			if(animation === "left"){now = banner.length-1}
+		}
 		$(i_points[now]).trigger("click")
 	})
 }
@@ -410,15 +442,13 @@ var	contentData = function(){
 		var json_result = JSON.parse(data)
 		
 		$.each(json_result.content, function(key, value){
-		//if(key === "book"){
-			var li_append = '<ul>'
+			var li_append = '<ul class="'+key+'-ul">'
 			var control = '<ol class="control">'
 			for(var i = 0; i < value.length; i++){
 				if(i !== value.length-1){li_append += '<li class="snippet">'}
 				else{li_append += '<li class="more snippet">'}
 				
-				li_append += '<i class="iconfont left">&#xe60a;</i>\
-											<i class="iconfont right">&#xe609;</i>'
+				li_append += ''
 				
 				if(value[i]["name"]){
 					li_append += '<h4 class="name"><a href>'+value[i]["name"]+'</a></h4>'
@@ -443,12 +473,14 @@ var	contentData = function(){
 				}
 				
 				li_append += '<a href class="img"><img src="images/'+value[i]["images"]+'" width="216" height="154"/></a></li>'
-				control += '<li></li>'
+				control += '<li><a></a></li>'
 			}
 			control += '</ol>'
 			li_append += '</ul>' + control
+			
 			$(".content").find(".main .module."+key).append(li_append)
-		//}	
+			
+			mainBannerSwitcher(".module."+key, "."+key+"-ul", ".control", "left")
 		})
 		
 		$(".content").find(".module").hover(function(){
@@ -456,6 +488,62 @@ var	contentData = function(){
 		}, function(){
 			$(this).removeClass("item-up-shadow-active")
 		})
+	})
+}
+
+
+/**********************/
+var videoData = function(){
+	ajax("data.json", function(data){
+		var json_result = JSON.parse(data)
+		var li_append = ''
+		for(var i = 0; i < json_result.video.length; i++){
+			li_append += '<li><a class="img-a"><img src="images/'+json_result.video[i]["images"]+'" width="296" height="180"/><div class="play"><span class="triangle"></span></div></a><p class="name"><a href>'+json_result.video[i]["name"]+'</a></p><p class="desc">'+json_result.video[i]["desc"]+'</p></li>'
+		}
+		$(".video").find(".main ul").append(li_append)
+		
+		$(".video").find(".main ul li").hover(function(){
+			$(this).addClass("item-up-shadow-active")
+		}, function(){
+			$(this).removeClass("item-up-shadow-active")
+		})
+		
+		$(".video").find(".img-a").on("click", function(){
+			var sNO = 0
+			var that = this
+			$(this).parents(".play-ul").children("li").each(function(i, e){
+				if($(e).html() === $(that).parent().html()){
+					sNO = i
+				}
+			})
+			videoPlay(sNO)
+		})
+		
+	})
+}
+
+
+/**********************/
+var videoPlay = function(sNO){
+	/* show */
+	$(".background.fade").css("height", $(document).height())
+	$(".background.fade").removeClass("hidden").addClass("in")
+	$(".popup-layer .popup-head title").empty()
+	$(".popup-layer").addClass("in")
+	
+	/* hide */
+	$(".popup-layer .close").on("click", function(){
+		$(".popup-layer").removeClass("in")
+		$(".background.fade").removeClass("in").addClass("hidden")
+	})
+	
+	ajax("data.json", function(data){
+		var json_result = JSON.parse(data)
+		var head = json_result.video[sNO]["name"]
+		var url = json_result.video[sNO]["url"]
+		
+		$(".popup-layer .popup-head title").append(head)
+		$(".popup-layer .popup-body").children("iframe").attr("src", url)
 	})
 }
 
