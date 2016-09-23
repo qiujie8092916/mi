@@ -35,6 +35,13 @@ body {
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif; }
 
+.brick-item {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+
 .hidden {
   display: none !important; }
 
@@ -105,11 +112,11 @@ body {
   .subtitle .subtitle-ul li {
     margin-left: 30px;
     cursor: pointer;
-    -webkit-transition: border-color 0.4s;
-    -moz-transition: border-color 0.4s;
-    -ms-transition: border-color 0.4s;
-    -o-transition: border-color 0.4s;
-    transition: border-color 0.4s;
+    -webkit-transition: border-color 0.4s ease;
+    -moz-transition: border-color 0.4s ease;
+    -ms-transition: border-color 0.4s ease;
+    -o-transition: border-color 0.4s ease;
+    transition: border-color 0.4s ease;
     cursor: pointer;
     font-size: 16px;
     padding-bottom: 3px;
@@ -198,11 +205,11 @@ body {
       font-size: 12px;
       background: #ff6700;
       opacity: 0;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      -ms-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s; }
+      -webkit-transition: all 0.2s linear;
+      -moz-transition: all 0.2s linear;
+      -ms-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear; }
       .right-main .right-main-ul li .item-comment a {
         display: block;
         padding: 8px 30px;
@@ -323,11 +330,7 @@ body {
         height: 260px; }
 
 .item-up-active {
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s; }
+  /*@include animate(transition, all, .2s, linear);*/ }
   .item-up-active:hover {
     -webkit-transform: translate3d(0, -2px, 0);
     -moz-transform: translate3d(0, -2px, 0);
@@ -336,11 +339,7 @@ body {
     transform: translate3d(0, -2px, 0); }
 
 .item-up-shadow-active {
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s; }
+  /*@include animate(transition, all, .2s, linear); */ }
   .item-up-shadow-active:hover {
     -webkit-transform: translate3d(0, -2px, 0);
     -moz-transform: translate3d(0, -2px, 0);
@@ -459,11 +458,11 @@ body {
       height: 50px;
       float: left;
       padding: 0 10px;
-      -webkit-transition: all 0.2s;
-      -moz-transition: all 0.2s;
-      -ms-transition: all 0.2s;
-      -o-transition: all 0.2s;
-      transition: all 0.2s;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
       outline: 0; }
     .head-nav .search-form button {
       background-color: #fff;
@@ -472,11 +471,11 @@ body {
       float: right;
       border: 1px solid #e0e0e0;
       border-left: 0;
-      -webkit-transition: all 0.2s;
-      -moz-transition: all 0.2s;
-      -ms-transition: all 0.2s;
-      -o-transition: all 0.2s;
-      transition: all 0.2s; }
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
       .head-nav .search-form button i {
         font-size: 24px;
         color: #616161; }
@@ -539,11 +538,11 @@ body {
   width: 100%;
   height: 230px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
-  -webkit-transition: box-shadow 0.2s;
-  -moz-transition: box-shadow 0.2s;
-  -ms-transition: box-shadow 0.2s;
-  -o-transition: box-shadow 0.2s;
-  transition: box-shadow 0.2s;
+  -webkit-transition: box-shadow 0.2s ease;
+  -moz-transition: box-shadow 0.2s ease;
+  -ms-transition: box-shadow 0.2s ease;
+  -o-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
   border-top: 1px solid #e0e0e0;
   display: none;
   position: absolute;
@@ -648,11 +647,11 @@ body {
                   float: right;
                   margin-top: 5px;
                   margin-right: 10px;
-                  -webkit-transition: all 0.5s;
-                  -moz-transition: all 0.5s;
-                  -ms-transition: all 0.5s;
-                  -o-transition: all 0.5s;
-                  transition: all 0.5s; }
+                  -webkit-transition: all 0.5s ease;
+                  -moz-transition: all 0.5s ease;
+                  -ms-transition: all 0.5s ease;
+                  -o-transition: all 0.5s ease;
+                  transition: all 0.5s ease; }
                   .container .main_banner .nav .list .item .children-list ul li .btn_buy:hover {
                     background: #ff6700;
                     color: #fff; }
@@ -668,7 +667,7 @@ body {
             .container .main_banner .nav .list .item > a i {
               color: #e0e0e0;
               position: absolute;
-              top: 0px;
+              top: 8px;
               right: 20px;
               font-weight: bolder; }
           .container .main_banner .nav .list .item:hover {
@@ -687,11 +686,11 @@ body {
         position: absolute;
         height: 100%;
         width: 100%;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-        -ms-transition: all 1s;
-        -o-transition: all 1s;
-        transition: all 1s; }
+        -webkit-transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease; }
         .container .main_banner .banner-ul li a {
           display: inline-block;
           height: 100%;
@@ -738,11 +737,11 @@ body {
         overflow: hidden;
         _zoom: 1;
         background: rgba(0, 0, 0, 0.4);
-        -webkit-transition: all 0.2s;
-        -moz-transition: all 0.2s;
-        -ms-transition: all 0.2s;
-        -o-transition: all 0.2s;
-        transition: all 0.2s;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
         cursor: pointer; }
       .container .main_banner .points .active {
         display: block;
@@ -755,11 +754,11 @@ body {
         text-indent: -9999px;
         overflow: hidden;
         _zoom: 1;
-        -webkit-transition: all 0.2s;
-        -moz-transition: all 0.2s;
-        -ms-transition: all 0.2s;
-        -o-transition: all 0.2s;
-        transition: all 0.2s;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
         background: rgba(255, 255, 255, 0.4);
         border-color: rgba(0, 0, 0, 0.4);
         cursor: pointer; }
@@ -800,11 +799,11 @@ body {
               white-space: nowrap;
               overflow: hidden;
               _zoom: 1;
-              -webkit-transition: color 0.2s;
-              -moz-transition: color 0.2s;
-              -ms-transition: color 0.2s;
-              -o-transition: color 0.2s;
-              transition: color 0.2s;
+              -webkit-transition: color 0.2s ease;
+              -moz-transition: color 0.2s ease;
+              -ms-transition: color 0.2s ease;
+              -o-transition: color 0.2s ease;
+              transition: color 0.2s ease;
               color: rgba(255, 255, 255, 0.7);
               text-align: center;
               font-size: 12px;
@@ -837,11 +836,11 @@ body {
             display: table; }
       .container .advertise ul .img {
         margin-right: 14px;
-        -webkit-transition: box-shadow 0.2s;
-        -moz-transition: box-shadow 0.2s;
-        -ms-transition: box-shadow 0.2s;
-        -o-transition: box-shadow 0.2s;
-        transition: box-shadow 0.2s; }
+        -webkit-transition: box-shadow 0.2s linear;
+        -moz-transition: box-shadow 0.2s linear;
+        -ms-transition: box-shadow 0.2s linear;
+        -o-transition: box-shadow 0.2s linear;
+        transition: box-shadow 0.2s linear; }
         .container .advertise ul .img:hover {
           box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
 
@@ -852,20 +851,20 @@ body {
   margin-top: 20px; }
   .gray-main .more-a {
     display: inline-block;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    -ms-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s; }
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
     .gray-main .more-a i {
       display: inline-block;
       width: 20px;
       height: 20px;
-      -webkit-transition: all 0.4s;
-      -moz-transition: all 0.4s;
-      -ms-transition: all 0.4s;
-      -o-transition: all 0.4s;
-      transition: all 0.4s; }
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease; }
     .gray-main .more-a:hover, .gray-main .more-a:hover i {
       color: #ff6700; }
   .gray-main .container-center {
@@ -991,11 +990,11 @@ body {
               font-size: 12px;
               outline: 0;
               cursor: pointer;
-              -webkit-transition: all 0.4s;
-              -moz-transition: all 0.4s;
-              -ms-transition: all 0.4s;
-              -o-transition: all 0.4s;
-              transition: all 0.4s; }
+              -webkit-transition: all 0.4s ease;
+              -moz-transition: all 0.4s ease;
+              -ms-transition: all 0.4s ease;
+              -o-transition: all 0.4s ease;
+              transition: all 0.4s ease; }
               .gray-main .container-center .content .module-ul .module ul .snippet .button.book {
                 border-color: #ffac13;
                 color: #ffac13; }
@@ -1059,11 +1058,11 @@ body {
             background-color: #b0b0b0;
             margin: 0 15px;
             cursor: pointer;
-            -webkit-transition: all 0.5s;
-            -moz-transition: all 0.5s;
-            -ms-transition: all 0.5s;
-            -o-transition: all 0.5s;
-            transition: all 0.5s; }
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease; }
             .gray-main .container-center .content .module-ul .module .control li a.active {
               border-color: #ff6700;
               background-color: transparent; }
@@ -1101,11 +1100,11 @@ body {
             border-radius: 12px;
             bottom: 10px;
             left: 20px;
-            -webkit-transition: all 0.2s;
-            -moz-transition: all 0.2s;
-            -ms-transition: all 0.2s;
-            -o-transition: all 0.2s;
-            transition: all 0.2s; }
+            -webkit-transition: all 0.2s ease;
+            -moz-transition: all 0.2s ease;
+            -ms-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
+            transition: all 0.2s ease; }
             .gray-main .container-center .video .main .play-ul li .play .triangle {
               display: block;
               width: 0;
@@ -1124,11 +1123,11 @@ body {
   z-index: 50;
   opacity: 0;
   filter: alpha(opacity=0) \9;
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -ms-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  transition: opacity 0.4s; }
+  -webkit-transition: opacity 0.4s linear;
+  -moz-transition: opacity 0.4s linear;
+  -ms-transition: opacity 0.4s linear;
+  -o-transition: opacity 0.4s linear;
+  transition: opacity 0.4s linear; }
   .background.fade.in {
     opacity: 0.5;
     filter: alpha(opacity=50) \9; }
@@ -1140,11 +1139,11 @@ body {
   top: calc(0px - 596px);
   left: calc(50% - 440px);
   z-index: 100;
-  -webkit-transition: top 0.4s;
-  -moz-transition: top 0.4s;
-  -ms-transition: top 0.4s;
-  -o-transition: top 0.4s;
-  transition: top 0.4s; }
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -ms-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out; }
   .popup-layer.in {
     top: calc(50% - 298px); }
   .popup-layer .popup-head {
@@ -1205,6 +1204,8 @@ footer {
           border-left: 0; }
         footer .white-footer .lg-foo-ul li a {
           color: #616161; }
+          footer .white-footer .lg-foo-ul li a:hover {
+            color: #ff6700; }
         footer .white-footer .lg-foo-ul li .iconfont {
           margin-right: 6px;
           font-size: 24px;
@@ -1256,21 +1257,21 @@ footer {
         line-height: 30px;
         color: #ff6700;
         cursor: pointer;
-        -webkit-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        -ms-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        transition: all 0.4s; }
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease; }
         footer .white-footer .hot-line button i {
           font-size: 12px;
           color: #ff6700;
           line-height: 30px;
           margin-right: 2px;
-          -webkit-transition: all 0.4s;
-          -moz-transition: all 0.4s;
-          -ms-transition: all 0.4s;
-          -o-transition: all 0.4s;
-          transition: all 0.4s; }
+          -webkit-transition: all 0.4s ease;
+          -moz-transition: all 0.4s ease;
+          -ms-transition: all 0.4s ease;
+          -o-transition: all 0.4s ease;
+          transition: all 0.4s ease; }
         footer .white-footer .hot-line button:hover {
           background-color: #ff6700;
           color: #fff; }

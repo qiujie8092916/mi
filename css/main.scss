@@ -1,9 +1,9 @@
 @mixin animate($attrName, $customName, $duration, $timingFunction: ease){
-	-webkit-#{$attrName}: $customName $duration;
-	-moz-#{$attrName}: $customName $duration;
-	-ms-#{$attrName}: $customName $duration;
-	-o-#{$attrName}: $customName $duration;
-	#{$attrName}: $customName $duration;
+	-webkit-#{$attrName}: $customName $duration $timingFunction;
+	-moz-#{$attrName}: $customName $duration $timingFunction;
+	-ms-#{$attrName}: $customName $duration $timingFunction;
+	-o-#{$attrName}: $customName $duration $timingFunction;
+	#{$attrName}: $customName $duration $timingFunction;
 }
 
 @mixin transform($keyname){
@@ -54,6 +54,8 @@ div, ul, ol, input{@include box-sizing(border-box);}
 h1{font-size: 22px; font-weight: 200; line-height: 58px; color: #333; display: inline-block;}
 body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;}
 
+
+.brick-item{@include animate(transition, all, .2s, linear);}
 .hidden{display: none !important;}
 .orange{background: #ffac13;}
 .green{background: #83c44e;}
@@ -64,6 +66,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 .children-col-1{width:265px;}
 .children-col-2{width:521px;}
 .children-col-3{width:781px;}
+
 .main{
 	width: 1226px; 
 	/*height: 614px;
@@ -212,7 +215,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 		    font-size: 12px;
 		    background: #ff6700;
 		    opacity: 0;
-		    @include animate(transition, all, .3s, linear);
+		    @include animate(transition, all, .2s, linear);
 		    a{
 					display: block;
 					padding: 8px 30px;
@@ -383,9 +386,10 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
     }
 	}
 }
-	
+
+
 .item-up-active{
-	@include animate(transition, all, .4s, linear); 
+	/*@include animate(transition, all, .2s, linear);*/
 	
 	&:hover{
 		@include transform(translate3d(0, -2px, 0));
@@ -393,7 +397,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 }
 
 .item-up-shadow-active{
-	@include animate(transition, all, .4s, linear); 
+	/*@include animate(transition, all, .2s, linear); */
 	
 	&:hover{
 		@include transform(translate3d(0, -2px, 0));
@@ -822,7 +826,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 						i{
 							color: #e0e0e0; 
 							position: absolute; 
-							top: 0px; 
+							top: 8px; 
 							right: 20px;
 							font-weight: bolder;
 						}
@@ -1422,7 +1426,7 @@ body{font-size: 14px; font-family: "Helvetica Neue", Helvetica, Arial, "Microsof
 	top: calc(0px - 596px);
 	left: calc(50% - 440px);
 	z-index: 100;
-	@include animate(transition, top, .4s, ease-out);
+	@include animate(transition, all, .4s, ease-out);
 	
 	&.in{
 		top: calc(50% - 298px);
@@ -1501,7 +1505,10 @@ footer{
 			  }
 			  
 			  a{
-			  	color: #616161;	
+			  	color: #616161;
+			  	&:hover{
+			  		color: #ff6700;	
+			  	}
 			  }
 			  
 			  .iconfont{

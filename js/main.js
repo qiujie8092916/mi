@@ -100,7 +100,7 @@ var quickView = function(className){
 		var resolution = 160
 		if(className === "recommand"){resolution = 140}
 		for(var i = 0; i < json_result[className].length; i++){
-			li_append += '<li><a href class="thumb">\
+			li_append += '<li class="brick-item"><a href class="thumb">\
 											<img src="images/'+json_result[className][i]["images"]+'" width="'+resolution+'" height="'+resolution+'"/></a>\
 											<a href class="name">'+json_result[className][i]["name"]+'</a>'
 			if(json_result[className][i]["desc"]){
@@ -213,7 +213,7 @@ var singleSwitcher = function(className, totalNum){
 }
 
 
-/***********防止轮播点击过快 造成偏移量bug: 动画中连续点击视无效***********/
+/***********防止content轮播点击过快 造成偏移量bug: 动画中连续点击视无效***********/
 var calculate = function(totalWitdh, snippetWidth, direct, offsetLeft){
 	var piece = totalWitdh / snippetWidth
 	var array = new Array()
@@ -254,7 +254,7 @@ var headNav = function(){
 						} else{
 							li_array[ii] += '<li>'
 						}
-						li_array[ii] += 	'<img src="'+json_result.head_nav[ii]['img'][j]+'" width="160" height="110"/>\
+						li_array[ii] += 	'<a href><img src="'+json_result.head_nav[ii]['img'][j]+'" width="160" height="110"/></a>\
 															<p class="name"><a href>'+json_result.head_nav[ii]['name'][j]+'</a></p>'
 						if(json_result.head_nav[ii]['price'][j]){
 							li_array[ii] += '<p class="price">'+json_result.head_nav[ii]['price'][j]+'起</p>'
@@ -333,19 +333,19 @@ var analysisData = function(className, tabObject){
 
 			for(var i = 0; i < value.length; i++){
 				if(value[i]["tiny"] == 1){
-					li_append += '<li class="main-item-1 small-li">\
+					li_append += '<li class="main-item-1 small-li brick-item">\
 													<a href class="item-sm-p">\
 														<img src="images/'+value[i]["images"]+'" width="80" height="80" />\
 													</a>\
 													<a href class="item-name">'+value[i]["name"]+'</a>\
 													<p class="item-price">'+value[i]["price"]+'元</p>\
 												</li>\
-												<li class="main-item-1 small-li">\
+												<li class="main-item-1 small-li brick-item">\
 													<a href class="more">浏览更多<small>'+more+'</small></a>\
 													<a href class="view-more"><i class="iconfont">&#xe60c;</i></a>\
 												</li>'
 				} else{
-					li_append += '<li class="main-item-2">\
+					li_append += '<li class="main-item-2 brick-item">\
 													<a href class="item-lg-p">\
 														<img src="images/'+value[i]["images"]+'" width="160" height="160" />\
 													</a>\
@@ -416,7 +416,7 @@ var	hotproductData = function(){
 		var li_append = ''
 		
 		for(var i = 0; i < json_result.hotproduct.length; i++){
-			li_append += '<li><a href><img src="images/'+json_result.hotproduct[i]["images"]+'" width="296" height="220"></a>\
+			li_append += '<li class="brick-item"><a href><img src="images/'+json_result.hotproduct[i]["images"]+'" width="296" height="220"></a>\
 											<p class="comment"><a href>'+json_result.hotproduct[i]["comment"]+'<a href></p>\
 											<p class="author">来自于 '+json_result.hotproduct[i]["author"]+' 的评价</p>\
 											<p class="name"><a href>'+json_result.hotproduct[i]["name"]+'</a>\
@@ -498,7 +498,7 @@ var videoData = function(){
 		var json_result = JSON.parse(data)
 		var li_append = ''
 		for(var i = 0; i < json_result.video.length; i++){
-			li_append += '<li><a class="img-a"><img src="images/'+json_result.video[i]["images"]+'" width="296" height="180"/><div class="play"><span class="triangle"></span></div></a><p class="name"><a href>'+json_result.video[i]["name"]+'</a></p><p class="desc">'+json_result.video[i]["desc"]+'</p></li>'
+			li_append += '<li class="brick-item"><a class="img-a"><img src="images/'+json_result.video[i]["images"]+'" width="296" height="180"/><div class="play"><span class="triangle"></span></div></a><p class="name"><a href>'+json_result.video[i]["name"]+'</a></p><p class="desc">'+json_result.video[i]["desc"]+'</p></li>'
 		}
 		$(".video").find(".main ul").append(li_append)
 		
@@ -525,25 +525,30 @@ var videoData = function(){
 
 /**********************/
 var videoPlay = function(sNO){
-	/* show */
-	$(".background.fade").css("height", $(document).height())
-	$(".background.fade").removeClass("hidden").addClass("in")
-	$(".popup-layer .popup-head title").empty()
-	$(".popup-layer").addClass("in")
-	
-	/* hide */
-	$(".popup-layer .close").on("click", function(){
-		$(".popup-layer").removeClass("in")
-		$(".background.fade").removeClass("in").addClass("hidden")
-	})
-	
 	ajax("data.json", function(data){
 		var json_result = JSON.parse(data)
 		var head = json_result.video[sNO]["name"]
 		var url = json_result.video[sNO]["url"]
 		
 		$(".popup-layer .popup-head title").append(head)
-		$(".popup-layer .popup-body").children("iframe").attr("src", url)
+		$(".popup-layer .popup-body").append('<iframe class="videoIframe" src="'+url+'" width="880" height="536" frameborder="0" allowfullscreen></iframe>')
+		
+		setTimeout(function(){
+			if($(".popup-layer .popup-body").find("iframe") !== []){
+				/* show */
+				$(".background.fade").css("height", $(document).height()).removeClass("hidden").addClass("in")
+				$(".popup-layer").addClass("in")
+			}
+		}, 10)
+		
+		
+		/* hide */
+		$(".popup-layer .close").on("click", function(){
+			$(".popup-layer").removeClass("in")
+			$(".background.fade").removeClass("in").addClass("hidden")
+			$(".popup-layer .popup-body").empty()
+			$(".popup-layer .popup-head title").empty()
+		})
 	})
 }
 
