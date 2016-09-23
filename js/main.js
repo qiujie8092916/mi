@@ -94,8 +94,8 @@ var mainBannerSwitcher = function(DivName, UlName, OlName, animation){
 
 /***********************/
 var quickView = function(className){
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		var li_append = ""
 		var resolution = 160
 		if(className === "recommand"){resolution = 140}
@@ -240,9 +240,9 @@ var headNav = function(){
 		
 		$(this).hover(function(){
 			var that = this
-			ajax("data.json", function(data){
+			$.when(defer("php/read-db.php")).done(function(data){
 				var li_array = new Array()
-				var json_result = JSON.parse(data)
+				var json_result = eval('(' + data + ')');
 				$.each(json_result.head_nav, function(ii, ee){
 					li_array[ii] = ''
 					li_array[ii] += '<div class="display-ol">\
@@ -286,8 +286,8 @@ var headNav = function(){
 		})
 	})
 	
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		var li_append = ''
 		
 		for(var i = 0; i < json_result.keyword.name.length; i++){
@@ -318,8 +318,8 @@ var headNav = function(){
 
 /**********************/
 var analysisData = function(className, tabObject){
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		var li_append = ''
 		
 		$.each(json_result[className], function(key, value){
@@ -411,8 +411,8 @@ var analysisData = function(className, tabObject){
 
 /**********************/
 var	hotproductData = function(){
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		var li_append = ''
 		
 		for(var i = 0; i < json_result.hotproduct.length; i++){
@@ -438,8 +438,8 @@ var	hotproductData = function(){
 
 /**********************/
 var	contentData = function(){
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		
 		$.each(json_result.content, function(key, value){
 			var li_append = '<ul class="'+key+'-ul">'
@@ -494,8 +494,8 @@ var	contentData = function(){
 
 /**********************/
 var videoData = function(){
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		var li_append = ''
 		for(var i = 0; i < json_result.video.length; i++){
 			li_append += '<li class="brick-item"><a class="img-a"><img src="images/'+json_result.video[i]["images"]+'" width="296" height="180"/><div class="play"><span class="triangle"></span></div></a><p class="name"><a href>'+json_result.video[i]["name"]+'</a></p><p class="desc">'+json_result.video[i]["desc"]+'</p></li>'
@@ -525,8 +525,8 @@ var videoData = function(){
 
 /**********************/
 var videoPlay = function(sNO){
-	ajax("data.json", function(data){
-		var json_result = JSON.parse(data)
+	$.when(defer("php/read-db.php")).done(function(data){
+		var json_result = eval('(' + data + ')');
 		var head = json_result.video[sNO]["name"]
 		var url = json_result.video[sNO]["url"]
 		
@@ -576,4 +576,17 @@ var effectResult = function(){
 			$(that).parents(".module").find(".right-main").children("ul."+classname).removeClass("hidden")
 		})
 	})
+}
+
+/**********************/
+var defer = function(url, data){
+	var df = $.Deferred();
+	$.ajax({
+		type: "post",
+ 		url: url,
+		data: data,
+		async: false,
+		success: function(data, textStatus){df.resolve(data);}
+	});
+	return df.promise();
 }
