@@ -94,8 +94,8 @@ var mainBannerSwitcher = function(DivName, UlName, OlName, animation){
 
 /***********************/
 var quickView = function(className){
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		var li_append = ""
 		var resolution = 160
 		if(className === "recommand"){resolution = 140}
@@ -240,9 +240,9 @@ var headNav = function(){
 		
 		$(this).hover(function(){
 			var that = this
-			$.when(defer("php/read-db.php")).done(function(data){
+			$.when(defer("data.json")).done(function(json_result){
 				var li_array = new Array()
-				var json_result = eval('(' + data + ')');
+				/*var json_result = eval('(' + data + ')');*/
 				$.each(json_result.head_nav, function(ii, ee){
 					li_array[ii] = ''
 					li_array[ii] += '<div class="display-ol">\
@@ -286,8 +286,8 @@ var headNav = function(){
 		})
 	})
 	
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		var li_append = ''
 		
 		for(var i = 0; i < json_result.keyword.name.length; i++){
@@ -318,8 +318,8 @@ var headNav = function(){
 
 /**********************/
 var analysisData = function(className, tabObject){
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		var li_append = ''
 		
 		$.each(json_result[className], function(key, value){
@@ -411,8 +411,8 @@ var analysisData = function(className, tabObject){
 
 /**********************/
 var	hotproductData = function(){
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		var li_append = ''
 		
 		for(var i = 0; i < json_result.hotproduct.length; i++){
@@ -438,8 +438,8 @@ var	hotproductData = function(){
 
 /**********************/
 var	contentData = function(){
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		
 		$.each(json_result.content, function(key, value){
 			var li_append = '<ul class="'+key+'-ul">'
@@ -494,8 +494,8 @@ var	contentData = function(){
 
 /**********************/
 var videoData = function(){
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		var li_append = ''
 		for(var i = 0; i < json_result.video.length; i++){
 			li_append += '<li class="brick-item"><a class="img-a"><img src="images/'+json_result.video[i]["images"]+'" width="296" height="180"/><div class="play"><span class="triangle"></span></div></a><p class="name"><a href>'+json_result.video[i]["name"]+'</a></p><p class="desc">'+json_result.video[i]["desc"]+'</p></li>'
@@ -525,8 +525,8 @@ var videoData = function(){
 
 /**********************/
 var videoPlay = function(sNO){
-	$.when(defer("php/read-db.php")).done(function(data){
-		var json_result = eval('(' + data + ')');
+	$.when(defer("data.json")).done(function(json_result){
+		/*var json_result = eval('(' + data + ')');*/
 		var head = json_result.video[sNO]["name"]
 		var url = json_result.video[sNO]["url"]
 		
@@ -551,6 +551,7 @@ var videoPlay = function(sNO){
 		})
 	})
 }
+
 
 
 /**********************/
